@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route as Switch } from "react-router-dom"
+import { Home } from './components/Home';
+import { AddCoin } from './components/AddCoin';
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/js/bootstrap.js";
+import { AddTradePair } from './components/AddTradePair';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+            <Routes>
+                <Switch path="/" element={<Home />} />
+                <Switch path="/add-coin" element={<AddCoin />} />
+                <Switch path="/add-trade-pair" element={<AddTradePair />} />
+            </Routes>
+        </BrowserRouter>
     </div>
   );
 }
